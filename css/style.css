@@ -130,6 +130,7 @@ button:hover{
     align-items: center; 
     padding: 3rem;
     background-color: rgb(0, 0, 0);
+    border: rgb(233, 186, 57) solid 1px;
 }
 #times{
     color: red;
