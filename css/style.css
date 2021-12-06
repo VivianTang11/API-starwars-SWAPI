@@ -9,8 +9,9 @@ body{
     color: whitesmoke;
     font-family: 'Poller One', cursive;
     height: 100vh;
-
 }
+
+/* Header */
 
 header{
     text-align: center;
@@ -31,6 +32,7 @@ header{
     border-bottom: rgb(233, 186, 57) 3px solid;
 }
 
+/* Landingpage */
 
 #landing-page{
     background: url(../media/star-wars-wallpaper-1.jpeg) no-repeat center/cover;
@@ -59,6 +61,7 @@ button:hover{
     color: black;
 }
 
+/*movie page */
 
 #movie-page{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../media/star-wars-wallpaper-39.jpeg) no-repeat center/cover ;
@@ -98,7 +101,7 @@ button:hover{
 }
  
 
-
+/*modal*/
 
 #movie-modal{
     display: none;
@@ -148,6 +151,10 @@ button:hover{
     display: flex;
     flex-direction: row;
 }
+#movie-modal img{
+    height: 50%;
+    padding-bottom: 1rem;
+}
 #modal-left{
     text-align: center;
     width: 50%;
@@ -178,7 +185,7 @@ button:hover{
 
 
 
-
+/*modal loader */
 
 #movie-modal-loader{
     height: 100%;
@@ -206,7 +213,3 @@ button:hover{
     100% {transform: rotate(360deg);}
 }
 
-#movie-modal img{
-    height: 50%;
-    padding-bottom: 1rem;
-}
