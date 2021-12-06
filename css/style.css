@@ -1,0 +1,212 @@
+*{
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}  
+
+body{
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Poller One', cursive;
+    height: 100vh;
+
+}
+
+header{
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.logo{
+    height: 9rem;
+    width: auto;
+    padding: 1rem;
+    transition: 1s;
+}
+.logo:hover, .movie-header h1{
+    transform: scale(1.1);
+    border-bottom: rgb(233, 186, 57) 3px solid;
+}
+
+
+#landing-page{
+    background: url(../media/star-wars-wallpaper-1.jpeg) no-repeat center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-margin-top: 100vh;
+}
+
+button{
+    font-family: 'Poller One', cursive;
+    font-size: 2rem;
+    color: rgb(233, 186, 57);
+    background-color: transparent;
+    text-transform: uppercase;
+    padding: 0 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: 1s;
+}
+
+button:hover{
+    background-color: rgb(233, 186, 57);
+    color: black;
+}
+
+
+#movie-page{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../media/star-wars-wallpaper-39.jpeg) no-repeat center/cover ;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.movie-header{
+    margin-top: 10rem;
+    text-transform: uppercase;
+}
+.movie-header h1{
+    font-size: 2rem;
+    border-bottom: rgb(233, 186, 57) 2px solid;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+}
+#loader{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+.movie-release{
+    padding: 1.1rem;
+}
+.movie-release:hover{
+    transform: scale(1.6);
+    transition: 1s;
+    color: rgb(233, 186, 57);
+    cursor: pointer;
+}
+ 
+
+
+
+#movie-modal{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top:0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    color: rgb(233, 186, 57);
+    overflow: auto;
+}
+#movie-modal p{
+    color: whitesmoke;
+    padding: 0.3rem;
+    font-style:italic;
+}
+
+#movie-modal-container{
+    height: 50vh;
+    width: 70vw;
+    display: none;
+    justify-content: center;
+    align-items: center; 
+    padding: 3rem;
+    background-color: rgb(0, 0, 0);
+}
+#times{
+    color: red;
+    font-size: 9rem;
+    display: flex;
+    position: fixed;
+    right: 3rem;
+    top: 0;
+    cursor: pointer;
+    transition: 2s;
+}
+#times span:hover{
+    transform: scale(1.7);
+    transition: 1s ease;
+}
+
+#movie-modal-content{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#modal-left{
+    text-align: center;
+    width: 50%;
+    overflow: auto;
+}
+#modal-left p{
+    font-size: 0.7rem;
+}
+#modal-right{
+    margin-left: 5rem;
+    text-align: left;
+    overflow: auto;
+    width: 50%;
+}
+
+
+#modal-right::-webkit-scrollbar, #modal-left::-webkit-scrollbar{
+  width: 0.2rem;
+}
+
+#modal-right::-webkit-scrollbar-thumb, #modal-left::-webkit-scrollbar-thumb{
+  border-radius: 1rem;
+  --webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(233, 186, 57,0.5);
+}
+
+
+
+
+
+
+
+#movie-modal-loader{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#movie-modal-loader p, #loader p{
+    padding-top: 1rem;
+    color: rgb(233, 186, 57);
+}
+.loader{
+    display: flex;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    border: 1rem solid #f3f3f3;
+    border-top: 1rem solid rgb(233, 186, 57);
+    animation: load 2s linear infinite;
+}
+@keyframes load {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+#movie-modal img{
+    height: 50%;
+    padding-bottom: 1rem;
+}

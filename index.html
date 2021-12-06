@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./media/pngfind.com-star-destroyer-png-268438.png" type="image/x-icon">
+    <title>SWAPI project</title>
+</head>
+<body>
+
+    <header>
+        <a href="#landing-page"><img class="logo" src="./media/pngfind.com-star-destroyer-png-268438.png" alt="Startwars"></a>
+    </header>
+
+    <main id="landing-page">
+        <a href="#movie-page"><button>Star wars-movies</button></a>
+    </main>
+
+    <main id="movie-page">
+
+        <section class="movie-header">
+            <h1>Star Wars-movies</h1>
+                <div id="loader">
+                    <span class="loader"></span>
+                    <p>Please wait</p>
+                </div>
+            <div class="movie-container">
+                <div id="movies"></div>    
+            </div>
+        </section>
+
+        <section id="movie-modal">
+            <div id="movie-modal-loader">
+                <span class="loader"></span>
+                <p>Please wait</p>
+            </div>
+            <div id="movie-modal-container">
+                <div id="times"><span>&times;</span></div>
+                <div id="movie-modal-content">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./scripts/app.js"></script>
+
+</body>
+</html>
