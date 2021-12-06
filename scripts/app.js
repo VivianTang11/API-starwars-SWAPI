@@ -11,11 +11,10 @@ let films = []
 
 //async/await function fetch url, await 
 //rendent onclick event(followed by index 'i'), film title & release date on every element from array film.
-
 const getFilms = async () => {
     const res = await fetch('https://swapi.dev/api/films')
     const data = await res.json()
-    films = data.results
+    films = data.results.sort((a, b) => (a.release_date > b.release_date) ? 1 : -1)
     loader.style.display = 'none'
     movies.innerHTML = 
     films.map((film, index)=> 
