@@ -160,6 +160,7 @@ button:hover{
     text-align: center;
     width: 50%;
     overflow: auto;
+    padding-right: 1rem;
 }
 #modal-left p{
     font-size: 0.7rem;
