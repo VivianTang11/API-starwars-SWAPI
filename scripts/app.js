@@ -9,16 +9,22 @@ const loaderModal = document.getElementById('movie-modal-loader')
 
 let films = []
 
+//async/await function fetch url, await 
+//rendent onclick event(followed by index 'i'), film title & release date on every element from array film.
+
 const getFilms = async () => {
     const res = await fetch('https://swapi.dev/api/films')
     const data = await res.json()
     films = data.results
     loader.style.display = 'none'
     movies.innerHTML = 
-        films.map((film, index)=> 
-            `<div class="movie-release" onclick="openMovieModal(${index})"><p>${film.title}<br>${film.release_date}</p></div>`).join(' ') 
+    films.map((film, index)=> 
+        `<div class="movie-release" onclick="openMovieModal(${index})">
+            <p>${film.title}<br>${film.release_date}</p>
+        </div>`).join(' ') 
 }
 
+//function that opens a modal when a film is clicked and index 'i' follows into function showMovie(). 
 const openMovieModal = () => {
     for (let i = 0; i < movieRelease.length; i++) {
         movieRelease[i].addEventListener('click', () => {
@@ -28,14 +34,18 @@ const openMovieModal = () => {
     }
 }
 
+//function that rendens each character from array film and index with async/await function. Then retuns promises.
+//This is to fetch each URL for every character depending on which film index 'i' that followed.
 const charPromises = (index) => {
     const promises = films[index].characters.map( async (url) => {
-      const res = await fetch(url)
-      return await res.json()
+        const res = await fetch(url)
+        return await res.json()
     });
     return promises;
 }
-        
+
+//async function catched all promises from function charPromises(), followed with the index.
+//then sorts the characters in alfabetical order before innerHTML is filled with content (title, img, opening crawl & character name)
 const showMovie = async (index) => {
     const res = await Promise.all(charPromises(index))
     res.sort((a, b) => (a.name > b.name) ? 1 : -1)
@@ -54,6 +64,7 @@ const showMovie = async (index) => {
     modalContent.style.display = 'flex'
 }
 
+//close modal when symbol "x" is clicked
 const closeMovieModal = () => {
     closeBtn.addEventListener('click', () => {
         movieModal.style.display = 'none'
