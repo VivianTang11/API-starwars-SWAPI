@@ -9,8 +9,9 @@ const loaderModal = document.getElementById('movie-modal-loader')
 
 let films = []
 
-//async/await function fetch url, await 
-//rendent onclick event(followed by index 'i'), film title & release date on every element from array film.
+//async/await function that waits untill url is fetched and result from swapi.com.
+//Then the result is moved/stored into empty array called films, then sorted using conditional tenary operator in release date (latest to earliest). 
+//rendent film titles & release dates on every element/object from array film. Also a onclick event is rendent on each film with their index as the argument.
 const getFilms = async () => {
     const res = await fetch('https://swapi.dev/api/films')
     const data = await res.json()
@@ -23,18 +24,18 @@ const getFilms = async () => {
         </div>`).join(' ') 
 }
 
-//function that opens a modal when a film is clicked and index 'i' follows into function showMovie(). 
+//function that opens a modal when a film is clicked and index 'i' follows into function modalContents(i). 
 const openMovieModal = () => {
     for (let i = 0; i < movieRelease.length; i++) {
         movieRelease[i].addEventListener('click', () => {
             movieModal.style.display = 'flex';
-            showMovie(i)
+            modalContents(i)
         })
     }
 }
 
 //function that rendens each character from array film and index with async/await function. Then retuns promises.
-//This is to fetch each URL for every character depending on which film index 'i' that followed.
+//This is to fetch each URL for every characters depending on which film index 'i'.
 const charPromises = (index) => {
     const promises = films[index].characters.map( async (url) => {
         const res = await fetch(url)
@@ -43,9 +44,9 @@ const charPromises = (index) => {
     return promises;
 }
 
-//async function catched all promises from function charPromises(), followed with the index.
-//then sorts the characters in alfabetical order before innerHTML is filled with content (title, img, opening crawl & character name)
-const showMovie = async (index) => {
+//async function catched all promises from function charPromises(), followed with the argument index.
+//then sorts the characters in alfabetical order before innerHTML is filled with content (title, img, opening crawl & character name) for the index 
+const modalContents = async (index) => {
     const res = await Promise.all(charPromises(index))
     res.sort((a, b) => (a.name > b.name) ? 1 : -1)
     modalContent.innerHTML = 
